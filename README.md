@@ -4,7 +4,7 @@ Implementation of GoogLeNet by chainer
 
 # Dependencies
 
-    git clone https://github.com/nutszebra/gogglenet.git
+    git clone https://github.com/nutszebra/googlenet.git
     cd googlenet
     git submodule init
     git submodule update
