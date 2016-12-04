@@ -27,10 +27,10 @@ class Inception(nutszebra_chainer.Model):
             self[name].b.data = self.bias_initialization(link, constant=0)
 
     def __call__(self, x, train=False):
-        a = self.conv1x1(x)
-        b = self.conv3x3(self.reduce3x3(x))
-        c = self.conv5x5(self.reduce5x5(x))
-        d = self.pool_proj(F.max_pooling_2d(x, ksize=(3, 3), stride=(1, 1), pad=(1, 1)))
+        a = F.relu(self.conv1x1(x))
+        b = F.relu(self.conv3x3(F.relu(self.reduce3x3(x))))
+        c = F.relu(self.conv5x5(F.relu(self.reduce5x5(x))))
+        d = F.relu(self.pool_proj(F.max_pooling_2d(x, ksize=(3, 3), stride=(1, 1), pad=(1, 1))))
         return F.concat((a, b, c, d), axis=1)
 
     @staticmethod
@@ -104,10 +104,10 @@ class Googlenet(nutszebra_chainer.Model):
         self.linear.b.data = self.bias_initialization(self.linear, constant=0)
 
     def __call__(self, x, train=True):
-        h = self.conv1(x)
+        h = F.relu(self.conv1(x))
         h = F.max_pooling_2d(h, ksize=(3, 3), stride=(2, 2), pad=(1, 1))
-        h = self.conv2_1x1(h)
-        h = self.conv2_3x3(h)
+        h = F.relu(self.conv2_1x1(h))
+        h = F.relu(self.conv2_3x3(h))
         h = F.max_pooling_2d(h, ksize=(3, 3), stride=(2, 2), pad=(1, 1))
         h = self.inception3a(h)
         h = self.inception3b(h)
@@ -119,7 +119,7 @@ class Googlenet(nutszebra_chainer.Model):
         h = self.inception4e(h)
         h = F.max_pooling_2d(h, ksize=(3, 3), stride=(2, 2), pad=(1, 1))
         h = self.inception5a(h)
-        h = self.inception5b(h)
+        h = F.relu(self.inception5b(h))
         num, categories, y, x = h.data.shape
         # global average pooling
         h = F.reshape(F.average_pooling_2d(h, (y, x)), (num, categories))
