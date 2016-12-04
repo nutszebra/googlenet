@@ -45,7 +45,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args().__dict__
     lr = args.pop('lr')
-    num_of_category = args.pop('num_of_category')
 
     print('generating model')
     model = googlenet.Googlenet(10)
