@@ -38,9 +38,9 @@ The description about weight decay can't be found in [[1]][Paper], so by using [
 <img src="https://github.com/nutszebra/googlenet/blob/master/accuracy.jpg" alt="total accuracy" title="total accuracy">
 
 # References
-Going Deeper with Convolutions [[1]][Paper]
-Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift [[2]][Paper2]
-Rethinking the Inception Architecture for Computer Vision [[3]][Paper3]
+Going Deeper with Convolutions [[1]][Paper]  
+Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift [[2]][Paper2]  
+Rethinking the Inception Architecture for Computer Vision [[3]][Paper3]  
 [paper]: https://arxiv.org/abs/1409.4842 "Paper"
 [paper2]: https://arxiv.org/abs/1502.03167 "Paper2"
 [paper3]: https://arxiv.org/abs/1512.00567 "Paper3"
