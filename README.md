@@ -32,7 +32,7 @@ The description about weight decay can't be found in [[1]][Paper], so by using [
 
 | network              | depth  | total accuracy (%) |
 |:---------------------|--------|-------------------:|
-| my implementation    | 22     | soon               |
+| my implementation    | 22     | 91.33               |
 
 <img src="https://github.com/nutszebra/googlenet/blob/master/loss.jpg" alt="loss" title="loss">
 <img src="https://github.com/nutszebra/googlenet/blob/master/accuracy.jpg" alt="total accuracy" title="total accuracy">
